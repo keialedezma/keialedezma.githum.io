@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Best Friend Greeting</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        #greeting {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Hi, ching!</h1>
+    <p>I miss you!</p>
+    <button id="showDialogBtn">Click here to see if you miss me</button>
+
+    <div id="greeting">
+        <p>Do you miss me?</p>
+        <button onclick="handleResponse('yes')">Yes</button>
+        <button onclick="handleResponse('no')">No</button>
+    </div>
+
+    <script>
+        document.getElementById('showDialogBtn').addEventListener('click', function() {
+            document.getElementById('greeting').style.display = 'block';
+            this.style.display = 'none';
+        });
+
+        function handleResponse(answer) {
+            if (answer === 'no') {
+                alert('Are you sure?');
+                // If the user clicks "No", only the "Yes" button is available
+                const response = prompt('Do you miss me now? (yes)');
+                if (response && response.toLowerCase() === 'yes') {
+                    alert('Great! Thanks for responding.');
+                }
+            } else {
+                alert('Great! Thanks for responding.');
+            }
+        }
+    </script>
+</body>
+</html>
